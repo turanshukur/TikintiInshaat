@@ -3,7 +3,13 @@
 {% load static %}
 
 {% block content %}
-
+<style type="text/css">
+    .slider_area {
+        position: relative;
+        overflow: hidden;
+        height: 500px;
+    }
+</style>
 
 <!-- Slider area -->
 <section class="slider_area row m0">
@@ -254,12 +260,11 @@
         <div class="container">
             <div class="row book_now">
                 <div class="col-md-10 booking_text">
-                    <h4>XƏYALINIZDAKI TƏMİRİ İSTƏYİRSİNİZSƏ</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
+                    <h4>XƏYALLARINIZI</h4>
+                    <p>bizimlə gerçəkləşdirin</p>
                 </div>
                 <div class="col-md-2 p0 book_bottun">
-                    <a href="#" class="button_all">SİFARİŞ EDİN</a>
+                    <a href="{% url 'contact_page_url' %}" class="button_all">SİFARİŞ EDİN</a>
                 </div>
             </div>
         </div>
