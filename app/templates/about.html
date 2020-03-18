@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<!-- Preloader -->
+<div class="preloader"></div>
+
+<!-- About Us Area -->
+<section class="about_us_area row">
+    <div class="container">
+        <div class="tittle wow fadeInUp">
+            <h2>HAQQIMIZDA</h2>
+            <h4>{{ about.small_text }}</h4>
+
+        </div>
+        <div class="row about_row">
+            <div class="col-md-5 col-sm-6 about_client about_pages_client">
+                <img src="{% static 'images/feature-man-3.jpg' %}" alt="">
+            </div>
+            <div class="who_we_area col-md-7 col-sm-6">
+                <div class="subtittle">
+                    <h2>{{about.title}}</h2>
+                </div>
+                <p>{{about.body}}</p>
+                <a href="{% url 'contact_page_url' %}" class="button_all">ƏLAQƏ</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End About Us Area -->
+
+
+{% endblock %}

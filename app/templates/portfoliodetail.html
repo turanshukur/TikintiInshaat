@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!--Photo For Gallery-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+<link rel="stylesheet" href="gallery-grid.css">
+
+<link href="{% static 'css/gallery-grid.css' %}" rel="stylesheet">
+<!--END Photo Gallery-->
+
+
+<!-- Banner area -->
+<section class="banner_area" data-stellar-background-ratio="0.5">
+    <h2>Portfolio</h2>
+    <ol class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#" class="active">Blog</a></li>
+    </ol>
+</section>
+<!-- End Banner area -->
+
+<!-- blog area -->
+<section class="blog_all">
+    <div class="container">
+        <div class="row m0 blog_row">
+            <div class="col-sm-8 main_blog">
+                <img src="{{ portfolio.base_image.url }}" width="750px" height="370px" alt="">
+                <div class="col-xs-1 p0">
+                    <div class="blog_date">
+                        <a href="#">{{ portfolio.date.day }}</a>
+                        <a href="#">{{ portfolio.date.month }}</a>
+                    </div>
+                </div>
+                <div class="col-xs-11 blog_content">
+                    <a class="blog_heading" href="#">{{ portfolio.title }}</a>
+                    <a class="blog_admin" href="#"><i class="fa fa-user" aria-hidden="true"></i>Emran Khan</a>
+                    <ul class="like_share">
+                        <li><a href="#"><i class="fa fa-comment" aria-hidden="true"></i>3</a></li>
+                        <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>10</a></li>
+                        <li><a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a></li>
+                    </ul>
+                    <p>{{ portfolio.body }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Gallery area -->
+    <div class="container">
+        <div class="tz-gallery">
+            {% for img in portfolio.image.all %}
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox" href="{{ img.image.url }}">
+                        <img src="{{ img.image.url }}" alt="Park" width="200px" height="200px">
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!--End Gallery-->
+</section>
+<!-- End blog area -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+<script>
+    baguetteBox.run('.tz-gallery');
+</script>
+
+
+
+{% endblock %}

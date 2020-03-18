@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Banner area -->
+<section class="banner_area" data-stellar-background-ratio="0.5">
+    <h2>PORTFOLIO</h2>
+    <ol class="breadcrumb">
+        <li><a href="{% url 'main_page_url' %}">ANA SƏHİFƏ</a></li>
+        <li><a href="{% url 'services_page_url' %}" class="active">PORTFOLIO</a></li>
+    </ol>
+</section>
+
+<!-- End Banner area -->
+
+<!-- blog-2 area -->
+<section class="blog_tow_area">
+    <div class="container">
+        <div class="row blog_tow_row">
+            {% for portfolio in portfolio %}
+            <div class="col-md-4 col-sm-6">
+                <div class="renovation">
+                    <img src="{{ portfolio.base_image.url }}" width="500px" alt="" height="250px">
+                    <div class="renovation_content">
+                        <a class="clipboard" href="#"><i class="fa fa-clipboard" aria-hidden="true"></i></a>
+                        <a class="tittle"
+                            href="{% url 'portfolio_detail_page_url' slug=portfolio.slug %}">{{ portfolio.title }}</a>
+                        <div class="date_comment">
+                            <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>
+                                {{portfolio.date}}</a>
+                        </div>
+                        <p>{{portfolio.body|truncatewords:20}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+</section>
+<!-- End blog-2 area -->
+
+{% endblock %}

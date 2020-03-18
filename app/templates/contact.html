@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Banner area -->
+<section class="banner_area" data-stellar-background-ratio="0.5">
+    <h2>ƏLAQƏ</h2>
+    <ol class="breadcrumb">
+        <li><a href="{% url 'main_page_url' %}">ƏSAS SƏHİFƏ</a></li>
+        <li><a href="{% url 'contact_page_url' %}" class="active">ƏLAQƏ</a></li>
+    </ol>
+</section>
+<!-- End Banner area -->
+
+<!-- Map -->
+<div class="contact_map">
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d194473.42999466046!2d49.71487539548641!3d40.39450797992698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d6bd6211cf9%3A0x343f6b5e7ae56c6b!2sBaku%2C%20Azerbaijan!5e0!3m2!1sen!2skr!4v1584437654686!5m2!1sen!2skr"
+        width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+        tabindex="0"></iframe>
+</div>
+<!-- End Map -->
+
+<!-- All contact Info -->
+<section class="all_contact_info">
+    <div class="container">
+        <div class="row contact_row">
+            <div class="col-sm-6 contact_info">
+                <h2>Əlaqə məlumatları</h2>
+
+                {% for contact in contact %}
+                <div class="location">
+                    <div class="location_laft">
+                        <a href="#">Ünvan</a>
+                        <a href="#">Telefon</a>
+                        <a href="#">email</a>
+                    </div>
+                    <div class="address">
+                        <a href="#">{{contact.adress}}</a>
+                        <a href="#">{{contact.phone}}</a>
+                        <a href="#">{{contact.email}}</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="col-sm-6 contact_info send_message">
+                <h2>Onlayn Müraciət</h2>
+                <form class="form-inline contact_box" method="POST" action=".">
+                    <!-- <input type="text" class="form-control input_box" placeholder="First Name *"> -->
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div>{{ field }}</div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-default">Göndər</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End All contact Info -->
+
+{% endblock %}

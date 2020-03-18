@@ -1,0 +1,270 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<!-- Slider area -->
+<section class="slider_area row m0">
+    <div class="slider_inner">
+        <div data-thumb="{% static 'images/slider-1.jpg' %}" data-src="{% static 'images/slider-1.jpg' %}">
+            <div class="camera_caption">
+                <div class="container">
+                    <h5 class=" wow fadeInUp animated">Beton Styashqa ishleri</h5>
+                    <h3 class=" wow fadeInUp animated" data-wow-delay="0.5s">Keyfiyyətli avadanlıqlar</h3>
+                    <p class=" wow fadeInUp animated" data-wow-delay="0.8s">Peşəkar və Məsuliyyətli komandamızla bütün
+                        növ təmir xidmətlərinizi öz öhdəmizə götürürük</p>
+                    <a class=" wow fadeInUp animated" data-wow-delay="1s" href="#">Ətraflı</a>
+                </div>
+            </div>
+        </div>
+        <div data-thumb="{% static 'images/slider-2.jpg' %}" data-src="{% static 'images/slider-2.jpg' %}">
+            <div class="camera_caption">
+                <div class="container">
+                    <h5 class=" wow fadeInUp animated">Fasad İşləri</h5>
+                    <h3 class=" wow fadeInUp animated" data-wow-delay="0.5s">Keyfiyyətli avadanlıqlar</h3>
+                    <p class=" wow fadeInUp animated" data-wow-delay="0.8s">Peşəkar və Məsuliyyətli komandamızla bütün
+                        növ təmir xidmətlərinizi öz öhdəmizə götürürük</p>
+                    <a class=" wow fadeInUp animated" data-wow-delay="1s" href="#">Ətraflı</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Slider area -->
+
+<!-- Professional Builde -->
+<section class="professional_builder row">
+    <div class="container">
+        <div class="row builder_all">
+            <div class="col-md-3 col-sm-6 builder">
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <h4>Professional Tikinti</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod </p>
+            </div>
+            <div class="col-md-3 col-sm-6 builder">
+                <i class="fa fa-building" aria-hidden="true"></i>
+                <h4>Keyfiyyətli Məhsullar</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod </p>
+            </div>
+            <div class="col-md-3 col-sm-6 builder">
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                <h4>Vaxında təhvil vermə</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod </p>
+            </div>
+            <div class="col-md-3 col-sm-6 builder">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                <h4>Biz Məsuliyyətliyik</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Professional Builde -->
+
+<!-- About Us Area -->
+<section class="about_us_area row">
+    <div class="container">
+        <div class="tittle wow fadeInUp">
+            <h2>Haqqımızda</h2>
+            <h4>{{about.small_text}}</h4>
+        </div>
+        <div class="row about_row">
+            <div class="who_we_area col-md-7 col-sm-6">
+                <div class="subtittle">
+                    <h2>{{about.title}}</h2>
+                </div>
+                <p>{{about.body}}</p>
+                <a href="#" class="button_all">Əlaqə</a>
+            </div>
+            <div class="col-md-5 col-sm-6 about_client">
+                <img src="{{ about.image.url }}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End About Us Area -->
+
+<!-- What ew offer Area -->
+<section class="what_we_area row">
+    <div class="container">
+        <div class="tittle wow fadeInUp">
+            <h2>XİDMƏTLƏRİMİZ</h2>
+        </div>
+        <div class="row construction_iner">
+
+            {% for services in services %}
+            <div class="col-md-4 col-sm-6 construction">
+                <div class="cns-img">
+                    <img src="{{services.upload.url}}" width="360" height="195" alt="">
+                </div>
+                <div class="cns-content">
+                    <i class="{{ services.icons }}" aria-hidden="true"></i>
+                    <a href="#">{{ services.title }}</a>
+                    <p></p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- End What ew offer Area -->
+
+
+
+<!-- Our Services Area
+<section class="our_services_area">
+    <div class="container">
+        <div class="tittle wow fadeInUp">
+            <h2>İŞLƏRİMİZ</h2>
+            <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h4>
+        </div>
+        <div class="portfolio_inner_area">
+            <div class="portfolio_filter">
+                <ul>
+                    <li data-filter="*" class="active"><a href=""> HAMISI</a></li>
+                    <li data-filter=".photography"><a href="">PVC QAPI PƏNCƏRƏ</a></li>
+                    <li data-filter=".branding"><a href="">CƏBHƏ FASAD</a></li>
+                    <li data-filter=".webdesign"><a href="">JALÜZ PƏRDƏ</a></li>
+                    <li data-filter=".adversting"><a href="">BETON STYAŞQA İŞLƏRİ</a></li>
+                    <li data-filter=".painting"><a href="">EDOKSİD YER ÖRTÜKLƏRİ</a></li>
+                </ul>
+            </div>
+            <div class="portfolio_item">
+                <div class="grid-sizer"></div>
+                <div class="single_facilities col-xs-4 p0 painting photography adversting">
+                    <div class="single_facilities_inner">
+                        <img src="{% static 'images/gallery/sv-1.jpg' %}" alt="">
+                        <div class="gallery_hover">
+                            <h4>Construction</h4>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="single_facilities col-xs-4 p0 webdesign">
+                    <div class="single_facilities_inner">
+                        <img src="{% static 'images/gallery/sv-2.jpg' %}" alt="">
+                        <div class="gallery_hover">
+                            <h4>Construction</h4>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="single_facilities col-xs-4 painting p0 photography branding">
+                    <div class="single_facilities_inner">
+                        <img src="{% static 'images/gallery/sv-3.jpg' %}" alt="">
+                        <div class="gallery_hover">
+                            <h4>Construction</h4>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="single_facilities col-xs-4 p0 adversting webdesign adversting">
+                    <div class="single_facilities_inner">
+                        <img src="{% static 'images/gallery/sv-4.jpg' %}" alt="">
+                        <div class="gallery_hover">
+                            <h4>Construction</h4>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="single_facilities col-xs-4 p0 painting adversting branding">
+                    <div class="single_facilities_inner">
+                        <img src="{% static 'images/gallery/sv-5.jpg' %}" alt="">
+                        <div class="gallery_hover">
+                            <h4>Construction</h4>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="single_facilities col-xs-4 p0 webdesign photography magazine adversting">
+                    <div class="single_facilities_inner">
+                        <img src="{% static 'images/gallery/sv-6.jpg' %}" alt="">
+                        <div class="gallery_hover">
+                            <h4>Construction</h4>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ End Our Services Area -->
+
+
+
+<!-- Our Featured Works Area -->
+<section class="featured_works row" data-stellar-background-ratio="0.3">
+    <div class="tittle wow fadeInUp">
+        <h2>PORTFOLİOMUZ</h2>
+        <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h4>
+    </div>
+    <div class="featured_gallery">
+        {% for portfolio in portfolio %}
+        <div class="col-md-3 col-sm-4 col-xs-6 gallery_iner p0">
+            <img src="{{ portfolio.base_image.url }}" width="480" height="320" alt="">
+            <div class="gallery_hover">
+                <h4>{{portfolio.title}}</h4>
+                <a href="{% url 'portfolio_detail_page_url' slug=portfolio.slug %}">ƏTRAFLI</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+<!-- End Our Featured Works Area -->
+
+
+
+<!-- Our Partners Area -->
+<section class="our_partners_area">
+    <div class="container">
+        <div class="tittle wow fadeInUp">
+            <h2>PARTNİYORLARIMIZ</h2>
+            <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h4>
+        </div>
+        <div class="partners">
+            <div class="item"><img src="{% static 'images/client_logo/client_logo-1.png' %}" alt=""></div>
+            <div class="item"><img src="{% static 'images/client_logo/client_logo-2.png' %}" alt=""></div>
+            <div class="item"><img src="{% static 'images/client_logo/client_logo-3.png' %}" alt=""></div>
+            <div class="item"><img src="{% static 'images/client_logo/client_logo-4.png' %}" alt=""></div>
+            <div class="item"><img src="{% static 'images/client_logo/client_logo-5.png' %}" alt=""></div>
+        </div>
+    </div>
+    <div class="book_now_aera">
+        <div class="container">
+            <div class="row book_now">
+                <div class="col-md-10 booking_text">
+                    <h4>XƏYALINIZDAKI TƏMİRİ İSTƏYİRSİNİZSƏ</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.</p>
+                </div>
+                <div class="col-md-2 p0 book_bottun">
+                    <a href="#" class="button_all">SİFARİŞ EDİN</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Our Partners Area -->
+
+{% endblock %}
